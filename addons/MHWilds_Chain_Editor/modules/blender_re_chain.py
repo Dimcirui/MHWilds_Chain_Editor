@@ -491,12 +491,12 @@ def importChainFile(filepath,options,isChain2 = False):
                     break
         chainCollection = createChainCollection(chainFileName,parentCollection)
         try:
-				split = splitNativesPath(filepath)
-				if split != None:
-					assetPath = os.path.splitext(split[1])[0].replace(os.sep,"/")
-					chainCollection["~ASSETPATH"] = assetPath#Used to determine where to export automatically
-		except:
-			print("Failed to set asset path from file path, file is likely not in a natives folder.")
+            split = splitNativesPath(filepath)
+            if split != None:
+                assetPath = os.path.splitext(split[1])[0].replace(os.sep,"/")
+                chainCollection["~ASSETPATH"] = assetPath #Used to determine where to export automatically
+        except:
+            print("Failed to set asset path from file path, file is likely not in a natives folder.")
         headerPropertyList = [("TYPE","RE_CHAIN_HEADER")]
         headerObj = createEmpty(f"CHAIN_HEADER {chainFileName}",headerPropertyList,None,chainCollection)
 

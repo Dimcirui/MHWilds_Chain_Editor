@@ -531,7 +531,7 @@ class ExportREChain2(bpy.types.Operator, ExportHelper):
             if context.scene["REChainLastImportedChain2Version"] == 12:
                 # MH Wilds beta fix
                 context.scene["REChainLastImportedChain2Version"] = 14
-			if context.scene["REChainLastImportedChain2Version"] == 13:
+            if context.scene["REChainLastImportedChain2Version"] == 13:
 				#MH Wilds TU4 fix
                 context.scene["REChainLastImportedChain2Version"] = 14
 
