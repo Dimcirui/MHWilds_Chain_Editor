@@ -732,7 +732,7 @@ class IMPORT_MT_re_chain_editor(bpy.types.Menu):
         layout = self.layout
 
         # layout.operator(ImportREChain.bl_idname, text="RE Chain (.chain.x) (Physics)", icon="LINK_BLEND")
-        layout.operator(ImportREChain2.bl_idname, text="MHWilds Chain2 (.chain2.13)", icon="LINK_BLEND")
+        layout.operator(ImportREChain2.bl_idname, text="MHWilds Chain2 (.chain2.14)", icon="LINK_BLEND")
         layout.operator(ImportRECLSP.bl_idname, text="MHWilds Clsp (.clsp.3)", icon="SPHERE")
 
 
@@ -748,7 +748,7 @@ class EXPORT_MT_re_chain_editor(bpy.types.Menu):
         layout = self.layout
 
         # layout.operator(ExportREChain.bl_idname, text="RE Chain (.chain.x) (Physics)", icon="LINK_BLEND")
-        layout.operator(ExportREChain2.bl_idname, text="MHWilds Chain2 (.chain2.13)", icon="LINK_BLEND")
+        layout.operator(ExportREChain2.bl_idname, text="MHWilds Chain2 (.chain2.14)", icon="LINK_BLEND")
         layout.operator(ExportRECLSP.bl_idname, text="MHWilds Clsp (.clsp.3)", icon="SPHERE")
 
 

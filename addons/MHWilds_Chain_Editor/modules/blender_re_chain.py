@@ -1087,7 +1087,7 @@ def importChainFile(filepath,options,isChain2 = False):
     return True
 
 def findClspPathFromChainPath(filepath):
-    split = filepath.split(".chain2.13")
+    split = filepath.split(".chain2.14")
     fileRoot = split[0]
 
     ClspPath = f"{fileRoot}.clsp.3"
@@ -1641,7 +1641,7 @@ def exportChainFile(filepath,options, version, isChain2 = False):
         writeREChain(newChainFile, filepath)
 
         if options["exportclsp"]:
-            filepath = filepath.split(".chain2.13")[0] + ".clsp.3"
+            filepath = filepath.split(".chain2.14")[0] + ".clsp.3"
             clspVersion = int(os.path.splitext(filepath)[1].replace(".", ""))
             success = exportCLSPFile(filepath, options, clspVersion)
             if success:
