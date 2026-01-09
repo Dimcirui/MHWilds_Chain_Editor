@@ -2,8 +2,8 @@ from .addons.MHWilds_Chain_Editor import register as addon_register, unregister 
 
 bl_info = {
     "name": 'MHWilds Chain Editor',
-    "author": 'NSA Cloud, alphaZomega, 诸葛不太亮',
-    "version": (1, 0),
+    "author": 'NSA Cloud, alphaZomega, 诸葛不太亮, Dimcirui',
+    "version": (1, 1),
     "blender": (2, 93, 0),
     "description": 'Import, edit and export MHWilds chain2 & clsp files.',
     "warning": '',

@@ -9,8 +9,8 @@ from .config import __addon_name__
 # Add-on info
 bl_info = {
 	"name": "MHWilds Chain Editor",
-	"author": "NSA Cloud, alphaZomega, 诸葛不太亮",
-	"version": (1, 0),
+	"author": "NSA Cloud, alphaZomega, 诸葛不太亮, Dimcirui",
+	"version": (1, 1),
 	"blender": (2, 93, 0),
 	# "location": "File > Import-Export",
 	"description": "Import, edit and export MHWilds chain2 & clsp files.",
