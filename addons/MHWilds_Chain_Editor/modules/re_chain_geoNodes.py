@@ -181,7 +181,7 @@ def getColCapsuleGeoNodeTree():
 	return node_group
 """
 def getColCapsuleGeoNodeTree():
-	TREENAME = "ChainCapsuleGeoNodeTreeV2"
+	TREENAME = "ChainCapsuleGeoNodeTreeV3"
 	
 	if TREENAME not in bpy.data.node_groups:
 		node_group = bpy.data.node_groups.new(type="GeometryNodeTree", name=TREENAME)
@@ -358,7 +358,12 @@ def getColCapsuleGeoNodeTree():
 		curveToMeshNode.location = (currentXLoc,currentYLoc - 350)
 		links.new(endSetCurveRadiusNode.outputs["Curve"],curveToMeshNode.inputs["Curve"])
 		links.new(curveCircleNode.outputs["Curve"],curveToMeshNode.inputs["Profile Curve"])
-		
+  
+		if bpy.app.version >= (4,5,0):
+			radiusNode = nodes.new('GeometryNodeInputRadius')
+			radiusNode.location = (currentXLoc,currentYLoc - 500)
+			links.new(radiusNode.outputs["Radius"],curveToMeshNode.inputs["Scale"])
+
 		currentXLoc += 300
 		
 		joinGeometryNode = nodes.new('GeometryNodeJoinGeometry')
@@ -490,7 +495,7 @@ def getColSphereGeoNodeTree():
 	return node_group
 
 def getChainLinkGeoNodeTree():
-	TREENAME = "ChainLinkGeoNodeTreeV1"
+	TREENAME = "ChainLinkGeoNodeTreeV2"
 	if TREENAME not in bpy.data.node_groups:
 		node_group = bpy.data.node_groups.new(type="GeometryNodeTree", name=TREENAME)
 		nodes = node_group.nodes
@@ -547,6 +552,9 @@ def getChainLinkGeoNodeTree():
 		curveToMeshNode.inputs["Fill Caps"].default_value = True
 		links.new(setCurveRadiusNode.outputs["Curve"],curveToMeshNode.inputs["Curve"])
 		links.new(curveCircleNode.outputs["Curve"],curveToMeshNode.inputs["Profile Curve"])
+
+		if bpy.app.version >= (4,5,0):
+			curveToMeshNode.inputs["Scale"].default_value = 0.1
 		
 		currentXLoc += 300
 		
@@ -576,7 +584,7 @@ def getChainLinkGeoNodeTree():
 	return node_group
 
 def getLinkColGeoNodeTree():
-	TREENAME = "ChainLinkColGeoNodeTreeV1"
+	TREENAME = "ChainLinkColGeoNodeTreeV2"
 	
 	if TREENAME not in bpy.data.node_groups:
 		node_group = bpy.data.node_groups.new(type="GeometryNodeTree", name=TREENAME)
@@ -656,7 +664,9 @@ def getLinkColGeoNodeTree():
 		curveToMeshNode = nodes.new('GeometryNodeCurveToMesh')
 		curveToMeshNode.location = (currentXLoc,currentYLoc - 350)
 		links.new(setCurveRadiusNode.outputs["Curve"],curveToMeshNode.inputs["Curve"])
-		links.new(curveCircleNode.outputs["Curve"],curveToMeshNode.inputs["Profile Curve"])
+		
+		if bpy.app.version >= (4,5,0):
+			links.new(multNode.outputs["Value"],curveToMeshNode.inputs["Scale"])
 		
 		currentXLoc += 300
 		
