@@ -255,10 +255,15 @@ class WM_OT_CreateFullBodyClsp(Operator):
     def execute(self, context):
         targetArmature = bpy.context.active_object.data
         filepath = os.path.join(os.path.dirname(os.path.split(os.path.abspath(__file__))[0]),"presets/ClspPresets","full_body.clsp.3")
-        options = {"targetArmature": targetArmature.name, "mergeChain": ""}
+        
+        active_col = context.scene.re_chain_toolpanel.chainCollection
+        active_col_name = active_col.name if active_col else ""
+        print(f"DEBUG: 正在尝试导入到集合: {active_col_name}")
+        options = {"targetArmature": targetArmature.name, "mergeChain": active_col_name}
+        
         importCLSPFile(filepath,options)
 
-        self.report({"INFO"}, "Created full body clsps.")
+        self.report({"INFO"}, f"Created full body clsps in {active_col_name}")
         return {'FINISHED'}
 
     @classmethod

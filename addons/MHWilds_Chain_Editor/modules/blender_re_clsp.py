@@ -404,13 +404,14 @@ def importCLSPFile(filepath,options):
             headerObj = findHeaderObj(chainCollection)
 
         if chainCollection != None and (headerObj != None):
+            unique_col_name = f"Chain Clsps - {clspFileName}.clsp ({chainCollection.name})"
             # clspname = chainCollection.name.split(".")[0]
             if mergedChain == True:
-                collisionCollection = getCollection(f"Chain Clsps - {clspFileName}.clsp", chainCollection,
-                                              makeNew=not mergedChain)
+                collisionCollection = getCollection(unique_col_name, chainCollection,
+                                                    makeNew=not mergedChain)
             else:
-                collisionCollection = getCollection(f"Chain Clsps - {clspFileName}.clsp", chainCollection,
-                                              makeNew=False)
+                collisionCollection = getCollection(unique_col_name, chainCollection,
+                                                    makeNew=False)
 
             collisionCollection["~TYPE"] = "RE_CLSP_COLLECTION"
         else:
